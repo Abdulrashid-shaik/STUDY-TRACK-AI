@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="ai-result-wrapper">
+
+    <div class="ai-hero">
+        <div class="ai-icon">🤖</div>
+        <h1>AI Prediction Result</h1>
+        <p>
+            Based on the student’s study habits, our AI model has analyzed
+            the data and generated the following insights.
+        </p>
+    </div>
+
+    <div class="ai-result-card">
+        <div class="result-row">
+            <span>Student Name</span>
+            <strong>{{ student }}</strong>
+        </div>
+
+        <div class="result-row highlight">
+            <span>Predicted Marks</span>
+            <strong>{{ marks }}</strong>
+        </div>
+
+        <div class="result-row">
+            <span>Performance Level</span>
+            <strong>{{ level }}</strong>
+        </div>
+
+        <div class="ai-recommendation">
+            <h3>🤖 AI Recommendation</h3>
+            <p>{{ recommendation }}</p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

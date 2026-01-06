@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- HERO SECTION -->
+<div class="hero-section">
+    <div class="hero-content">
+        <h1 class="hero-title">StudyTrack AI</h1>
+        <p class="hero-subtitle">
+            AI-Based Study Habit Recommender System
+        </p>
+        <p class="hero-desc">
+            Analyze habits • Train models • Predict performance • Visualize insights
+        </p>
+    </div>
+</div>
+
+<!-- FEATURE CARDS -->
+<div class="features">
+
+    <div class="feature-card">
+        <h3>📊 Smart Predictions</h3>
+        <p>Predict student performance using trained AI models.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>🧠 Model Training</h3>
+        <p>Train regression & clustering models from datasets.</p>
+    </div>
+
+    <div class="feature-card">
+        <h3>📈 Analytics</h3>
+        <p>Visualize study habits and performance trends.</p>
+    </div>
+
+</div>
+
+<!-- STATS -->
+<div class="stats">
+
+    <div class="stat-box">
+        <h2 class="count" data-target="{{ total_users }}">0</h2>
+        <p>Total Users</p>
+    </div>
+
+    <div class="stat-box">
+        <h2 class="count" data-target="{{ total_predictions }}">0</h2>
+        <p>Total Predictions</p>
+    </div>
+
+    <div class="stat-box">
+        <h2 class="count" data-target="{{ model_accuracy | int }}">0</h2>
+        <p>Model Accuracy (%)</p>
+    </div>
+
+</div>
+
+
+
+<script>
+const counters = document.querySelectorAll('.counter');
+counters.forEach(counter => {
+    const target = +counter.getAttribute('data-target');
+    const update = () => {
+        const current = +counter.innerText;
+        const inc = Math.ceil(target / 60);
+        if (current < target) {
+            counter.innerText = current + inc;
+            setTimeout(update, 40);
+        } else {
+            counter.innerText = target;
+        }
+    };
+    update();
+});
+</script>
+
+
+{% endblock %}

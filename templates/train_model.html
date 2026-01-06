@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="train-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="train-info">
+        <div class="ai-icon">🧠</div>
+
+        <h1>Train Your AI Model</h1>
+        <p class="train-desc">
+            Upload a student habits dataset to train the AI model.
+            This step is required before predictions and analytics.
+        </p>
+
+        <div class="csv-card">
+            <h3>📄 CSV File Format</h3>
+            <p>Your dataset must include:</p>
+
+            <ul>
+                <li><b>Student</b></li>
+                <li><b>StudyHours</b></li>
+                <li><b>PlayHours</b></li>
+                <li><b>SleepHours</b></li>
+                <li><b>SocialMedia</b></li>
+                <li><b>Exercise</b></li>
+                <li><b>AttentionLevel</b></li>
+                <li><b>Marks</b> (Target column)</li>
+            </ul>
+
+            <small>
+                Marks are used only for training.
+                Students will NOT enter marks during prediction.
+            </small>
+        </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="train-action">
+        <h2>Upload Dataset</h2>
+        <p class="sub-text">Supported format: <b>.csv,.xlsx</b></p>
+
+        <form method="POST" action="/train" enctype="multipart/form-data">
+
+        <input type="file" name="dataset" accept=".csv,.xlsx" required>
+
+        <small class="file-hint">
+            Accepted formats: .csv, .xlsx
+        </small>
+
+        <button type="submit">🚀 Train Model</button>
+
+        </form>
+
+        {% if accuracy %}
+            <div class="training-result">
+                <h3>✅ Training Completed</h3>
+                <p><b>Regression Accuracy:</b> {{ accuracy }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</div>
+
+{% endblock %}

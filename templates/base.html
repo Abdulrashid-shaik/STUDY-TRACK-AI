@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="bg-animated"></div>
+    <div class="app-container">
+<div class="layout">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+    <div class="sidebar-brand">
+        <h2>StudyTrack</h2>
+        <span>AI System</span>
+    </div>
+
+    <nav class="sidebar-menu">
+        <a href="/home"><span></span> Home</a>
+        <a href="/train"><span>🧠</span> Train Model</a>
+        <a href="/predict"><span></span> Single Prediction</a>
+        <a href="/bulk"><span></span> Bulk Prediction</a>
+        <a href="/visualize"><span>📈</span> Visualization</a>
+    </nav>
+
+    <a href="/logout" class="logout-btn">🚪 Logout</a>
+    </div>
+
+
+    <!-- MAIN CONTENT -->
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/animate.js') }}"></script>
+
+
+    </div>
+</body>
+</html>

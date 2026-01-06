@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudyTrack AI | Result</title>
+    <a href="/download-bulk-results" class="download-btn">
+    ⬇ Download CSV
+    </a>
+
+    <a href="/download-bulk-results-excel" class="download-btn">
+    ⬇ Download Excel
+    </a>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-container">
+
+    <div class="login-box" style="width:600px;">
+        <h1>Prediction Result</h1>
+
+        <p><strong>Predicted Score:</strong> {{ score }}</p>
+        <p><strong>Recommendation:</strong> {{ recommendation }}</p>
+
+        <p><strong>Cluster Group:</strong> {{ cluster }}</p>
+
+        <div style="margin-top:20px;">
+            <a href="/predict">
+                <button>New Prediction</button>
+            </a>
+            <a href="/dashboard">
+                <button style="margin-left:10px;">Dashboard</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

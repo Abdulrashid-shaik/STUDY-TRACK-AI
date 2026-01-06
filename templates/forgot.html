@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudyTrack AI | Reset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="login-page">
+
+<div class="login-wrapper">
+
+    <div class="login-left">
+        <h1 class="brand-title">Reset Password</h1>
+        <p class="brand-tagline">
+            Secure your account<br>
+            and continue learning.
+        </p>
+    </div>
+
+    <div class="login-right">
+        <div class="login-card">
+            <h2>Forgot Password</h2>
+
+            <form method="POST" action="/forgot">
+                <input type="email" name="email" placeholder="Registered Email" required>
+                <button type="submit">Send Reset Link</button>
+            </form>
+
+            <div class="login-links">
+                <a href="/">Back to Login</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

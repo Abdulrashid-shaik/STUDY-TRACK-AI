@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StudyTrack AI | Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="page-container">
+
+    <div class="login-box" style="width:600px;">
+        <h1>Dashboard</h1>
+        <p class="subtitle">StudyTrack – AI Based Study Habit Recommender</p>
+
+        <div style="margin-top:20px;">
+            <a href="/predict">
+                <button style="margin-bottom:15px;">Single Prediction</button>
+            </a>
+
+            <a href="/visualize">
+                <button style="margin-bottom:15px;">Data Visualization</button>
+            </a>
+
+            <a href="/logout">
+                <button style="background:#ef4444;">Logout</button>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

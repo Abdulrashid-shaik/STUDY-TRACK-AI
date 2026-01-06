@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="ai-result-wrapper">
+
+    <div class="ai-hero">
+        <div class="ai-icon">📈</div>
+        <h1>AI Analytics & Insights</h1>
+        <p>
+            Visual analysis of student habits, predictions, and model performance.
+        </p>
+    </div>
+
+    {% if graphs %}
+    <div class="analytics-grid">
+
+        <div class="analytics-card">
+            <h3>Study Hours vs Marks</h3>
+            <img src="{{ url_for('static', filename='images/study_vs_marks.png') }}">
+        </div>
+
+        <div class="analytics-card">
+            <h3>Marks Distribution</h3>
+            <img src="{{ url_for('static', filename='images/marks_distribution.png') }}">
+        </div>
+
+        <div class="analytics-card">
+            <h3>Performance Levels</h3>
+            <img src="{{ url_for('static', filename='images/performance_levels.png') }}">
+        </div>
+
+        <div class="analytics-card">
+            <h3>Accuracy Improvement</h3>
+            <img src="{{ url_for('static', filename='images/accuracy_comparison.png') }}">
+        </div>
+
+    </div>
+    {% else %}
+        <p>No prediction data available yet.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

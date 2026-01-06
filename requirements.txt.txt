@@ -1,0 +1,11 @@
+flask
+numpy
+html5
+css
+pandas
+scikit-learn
+joblib
+mysql-connector-python
+bcrypt
+matplotlib
+openpyxl

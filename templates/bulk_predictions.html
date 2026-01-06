@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="bulk-wrapper">
+
+    <!-- HERO -->
+    <div class="bulk-hero">
+        <div class="bulk-icon">📊</div>
+        <h1>AI Bulk Prediction</h1>
+        <p>
+            Upload student habit data and let AI analyze performance at scale.
+        </p>
+    </div>
+
+    <!-- INFO + UPLOAD -->
+    <div class="bulk-top-grid">
+
+        <!-- CSV INFO -->
+        <div class="csv-info-card">
+            <h3>📄 CSV File Requirements</h3>
+            <p>Your CSV file must contain the following columns:</p>
+
+            <ul>
+                <li><b>Student</b> – Student name</li>
+                <li><b>StudyHours</b></li>
+                <li><b>PlayHours</b></li>
+                <li><b>SleepHours</b></li>
+                <li><b>SocialMedia</b></li>
+                <li><b>Exercise</b></li>
+                <li><b>AttentionLevel</b></li>
+            </ul>
+
+            <small>
+                ⚠ Marks are <b>NOT</b> required for bulk prediction.
+            </small>
+
+            <a href="/download-bulk-sample" class="download-btn">
+                ⬇ Download Sample CSV
+            </a>
+        </div>
+
+        <!-- UPLOAD -->
+        <div class="bulk-upload-card">
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="dataset" required>
+                <button type="submit">🚀 Run Bulk Prediction</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- RESULTS -->
+    {% if results %}
+    <!-- SUCCESS ANIMATION -->
+    <div class="success-banner">
+        <div class="success-icon">✅</div>
+        <div>
+            <h3>Bulk Prediction Completed</h3>
+            <p>{{ results|length }} students processed successfully.</p>
+        </div>
+    </div>
+
+    <div class="ai-result-card">
+
+        <div class="results-header">
+    <h2>Prediction Results</h2>
+
+    <div class="results-actions">
+        <a href="/download-bulk-results" class="download-btn">
+            ⬇ Download Results (CSV)
+        </a>
+
+        <!-- OPTIONAL: only if Excel export route exists -->
+        <a href="/download-bulk-results-excel" class="download-btn">
+            ⬇ Download Results (Excel)
+        </a>
+    </div>
+</div>
+
+
+        {% for r in results %}
+        <div class="bulk-row">
+            <div class="bulk-student">
+                <strong>{{ r.student }}</strong>
+                <span>{{ r.level }}</span>
+            </div>
+
+            <div class="bulk-marks">
+                {{ r.marks }}
+            </div>
+
+            <div class="bulk-rec">
+                {{ r.recommendation }}
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+
+</div>
+
+{% endblock %}
