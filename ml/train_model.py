@@ -1,9 +1,9 @@
 import pandas as pd
 import joblib
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.cluster import KMeans
-from sklearn.metrics import r2_score
+ # from sklearn.model_selection import train_test_split
+# from sklearn.linear_model import LinearRegression
+# from sklearn.cluster import KMeans
+# from sklearn.metrics import r2_score
 
 # LOAD DATA
 data = pd.read_csv("../data/student_habits.csv")
